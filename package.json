@@ -1,0 +1,47 @@
+{
+  "name": "hushlittleba.by",
+  "version": "1.0.0",
+  "description": "the hushlittleba.by website - a small PWA example",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node hlbServer.js"
+  },
+  "keywords": [],
+  "author": "Patrick Kettner",
+  "license": "ISC",
+  "dependencies": {
+    "Modernizr": "https://modernizr.com/download/?-audio-audioloop-flash-inlinesvg-webaudio-setclasses",
+    "gsap": "^1.19.0"
+  },
+  "devDependencies": {
+    "concat-stream": "^1.5.2",
+    "del": "^2.2.2",
+    "dotenv": "^2.0.0",
+    "eslint-plugin-hapi": "^4.0.0",
+    "gulp": "^3.9.1",
+    "gulp-copy": "0.0.2",
+    "gulp-eslint": "^3.0.1",
+    "hapi": "^14.1.0",
+    "hapi-cors-headers": "^1.0.0",
+    "html-webpack-plugin": "^2.22.0",
+    "inert": "^4.0.1",
+    "jszip": "^3.1.2",
+    "letsencrypt-express": "^1.2.0",
+    "replacestream": "^4.0.2",
+    "run-sequence": "^1.2.2",
+    "spdy": "^3.4.0",
+    "style-ext-html-webpack-plugin": "^2.0.2",
+    "through2": "^2.0.1",
+    "vinyl": "^1.2.0",
+    "webpack": "^2.1.0-beta.22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrickkettner/hushlittleba.by.git"
+  },
+  "bugs": {
+    "url": "https://github.com/patrickkettner/hushlittleba.by/issues"
+  },
+  "homepage": "https://github.com/patrickkettner/hushlittleba.by#readme"
+}

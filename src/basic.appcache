@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+#version 0.1
+
+/
+/index.html
+/favicon.ico
+/bundle.js
+/audio/music.mp3
+
+NETWORK:
+*

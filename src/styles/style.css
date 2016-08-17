@@ -1,0 +1,140 @@
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+object {
+    width: 0;
+    height: 0;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.button {
+    position: fixed;
+    bottom: 0;
+    width: 50%;
+    padding: 0.5em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: white;
+    border: 1px solid;
+    opacity: 0.8;
+    font-size: 1.5em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.button:hover {
+    cursor: pointer;
+}
+.button:focus, .button:active {
+    opacity: 1;
+    outline: none;
+}
+#music {
+    left: 0;
+}
+#static {
+    right: 0;
+    border-left: 0;
+}
+
+.no-inlinesvg circle {
+    position: absolute;
+    display: block;
+    width: 175px;
+    height: 175px;
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    -khtml-border-radius: 90px;
+    border-radius: 90px;
+}
+
+.no-inlinesvg .a {
+  background: url('./icons/red-circle.png')
+}
+
+.no-inlinesvg .b {
+  background: url('./icons/black-circle.png')
+}
+
+circle.a {
+    fill: #ec3111;
+}
+
+.two circle.a, .seven circle.a, .eight circle.a {
+    fill: #000;
+}
+
+.three circle.b, .six circle.a, .six circle.b {
+    fill: #ec3111;
+}
+
+
+.four circle.b, .seven circle.b, .nine circle.a, .nine circle.b {
+    fill: #fff;
+}
+
+.four, .five, .six {
+    background: black
+}
+
+.five circle.a, .five circle.b {
+    fill: #fff;
+}
+
+.seven, .eight, .nine {
+    background: #ec3111;
+}
+
+#downloadBox {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    font-family: sans-serif;
+    font-size: 2em;
+    padding: 1em;
+    background: white;
+    text-align: center;
+}
+
+#downloadBox a,
+#downloadBox a:hover,
+#downloadBox a:focus,
+#downloadBox a:active,
+#downloadBox a:visited,
+#downloadBox button:focus {
+    color: #ec3111
+}
+
+#downloadBox a:focus,
+#downloadBox a:active,
+#downloadBox button:focus {
+    outline: 1px dashed;
+}
+
+#downloadBox button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.5em;
+    background: none;
+    border: 0;
+}
