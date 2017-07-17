@@ -1,3 +1,4 @@
+require('hammerjs');
 require('./js/script.js');
 require('./styles/style.css');
 require('gsap');

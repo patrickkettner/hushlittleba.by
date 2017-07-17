@@ -1,5 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var webpack = require('webpack');
 
 
@@ -28,7 +29,7 @@ module.exports = {
         new StyleExtHtmlWebpackPlugin({
             minify: true
         }),
-        new webpack.optimize.UglifyJsPlugin(),
-        new webpack.NoErrorsPlugin()
+        new UglifyJSPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
     ]
 };

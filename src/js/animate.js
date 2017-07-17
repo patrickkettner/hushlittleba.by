@@ -2,6 +2,8 @@ var circles = document.getElementsByTagName('circle');
 var body = document.body;
 var tl = new TimelineLite();
 var meta = document.createElement('meta');
+var defaultRadius = 8;
+var currentRadius = defaultRadius;
 
 meta.name = 'theme-color';
 meta.content = '#fff';
@@ -32,7 +34,7 @@ var randomPercentage = function (min, max) {
     return (Math.random() * (max - min) + min).toFixed(1) + '%';
 };
 
-for (var i = 0; i < circles.length; i++){
+for (var i = 0; i < circles.length; i++) {
 
     var circle = circles.item(i);
 
@@ -42,7 +44,7 @@ for (var i = 0; i < circles.length; i++){
     circle.className = val;
 
     // all circles are the same radius... for now
-    circle.setAttribute('r', '8%');
+    circle.setAttribute('r', defaultRadius + '%');
 
     // position the circles for supported svg clients
     circle.setAttribute('cx', randomPercentage(5,95));
@@ -91,24 +93,53 @@ tl
 .to('#d15', randomRuntime(), generateTo(paths[15]), 0);
 
 var changeBodyClass = function (e) {
-    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
-        return;
+    if (this.timeoutId) {
+        window.clearTimeout(this.timeoutId);
     }
 
-    var classes = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-    var index = classes.indexOf(body.className) + 1;
+    this.timeoutId = window.setTimeout(function () {
+        if (e.type === 'touchstart' && e.touches.length > 1) {
+            return;
+        }
 
-    if (index >= classes.length) {
-        index = 0;
-    }
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
+            return;
+        }
 
-    body.className = classes[index];
+        var classes = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+        var index = classes.indexOf(body.className) + 1;
 
-    meta.content = getComputedStyle(document.body).backgroundColor;
+        if (index >= classes.length) {
+            index = 0;
+        }
+
+        body.className = classes[index];
+
+        meta.content = getComputedStyle(document.body).backgroundColor;
+    }, 150);
 };
+
+var hammer = new Hammer(document.querySelector('svg'), {
+    domEvents: true
+});
+
+hammer.get('pinch').set({ enable: true });
+
+hammer.on('pinchmove', function (e) {
+    var min = defaultRadius * 0.75;
+    var max = defaultRadius * 3.5;
+
+    var scale = Math.max(min, Math.min(currentRadius * e.scale, max));
+
+    for (var l = 0; l < circles.length; l++) {
+        var circ = circles.item(l);
+        circ.setAttribute('r', scale + '%');
+    }
+});
 
 if ('addEventListener' in body) {
     body.addEventListener('click', changeBodyClass, false);
+    body.addEventListener('touchstart', changeBodyClass, false);
     body.addEventListener('keypress', changeBodyClass, false);
 }
 else {

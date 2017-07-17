@@ -17,3 +17,9 @@ else if (navigator.userAgent.indexOf('MSIE') !== -1) {
 
     document.body.appendChild(downloadBox);
 }
+
+var touchmoveHandler = function (e) {
+    e.preventDefault();
+};
+
+document.addEventListener('touchmove', touchmoveHandler, false);
